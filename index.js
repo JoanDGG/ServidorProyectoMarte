@@ -37,4 +37,4 @@ sequelize.sync({force: true})
             console.log('Servidor en línea en el puerto 8080')
         });
     })
-    .then(error => console.log(error))
+    .catch(error => console.log(error))
