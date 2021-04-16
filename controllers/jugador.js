@@ -11,6 +11,7 @@ exports.getMostrarFormulario = (req, res) => {
 
 exports.postInsertarJugador = (req, res) => {
     console.log(req.body);
+    console.log(req.body.gamertag);
     Jugador.create({
         'gamertag': req.body.gamertag,
         'contrasena': req.body.password,
