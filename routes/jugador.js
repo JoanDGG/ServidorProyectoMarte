@@ -9,6 +9,8 @@ router.get('/registro', jugadorController.getMostrarFormulario);
 
 router.get('/confirmacion', jugadorController.getConfirmacion);
 
+router.get('/tablero', jugadorController.getSelectJugador);
+
 module.exports = router;
 
 

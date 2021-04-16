@@ -34,8 +34,11 @@ app.use('/jugador', jugadorRoutes);
 // Middleware permite que el folder public sea público. 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Configurar ejs para incrustar código javascript en documentos html.
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
 
-sequelize.sync({force: true})
+sequelize.sync()
     .then(resultado => {
         console.log("Conexión exitosa de sequelize.")
         // Atender peticiones en el puerto 8080.

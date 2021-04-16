@@ -5,6 +5,7 @@ const path = require('path');
 
 const Jugador = require('../util/database').models.Jugador;
 
+
 exports.getConfirmacion = (req, res) => {
     res.send('Confirmadísimo')
 };
@@ -40,10 +41,8 @@ exports.getSelectJugador = (req, res) => {
                 data.push(registro.dataValues);
             })
             console.log(data);
-            res.render('ejemploEJS.html',{
-                personas:data,
-                sesion:"Autorizada",
-                fecha: 2021
+            res.render('Tablero.html',{
+                jugadores: data,
             });
         })
         .catch(error=>console.log(error))
