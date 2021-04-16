@@ -6,7 +6,9 @@
 const express = require('express');
 
 // Importando biblioteca para manejar json.
+// Importando biblioteca para manejar json.
 const bodyParser = require('body-parser');
+const { kMaxLength } = require('buffer');
 
 // importando el objeto de conexión a la base de datos.
 const sequelize = require('./util/database');
@@ -23,11 +25,15 @@ const app = express();
 // Middleware permite que se reciban archivos json por medio de get. 
 app.use(bodyParser.json());
 
+// Middleware para recibir json desde formulario.
+app.use(bodyParser.urlencoded({extended:true}));
+
 // middleware para que se use /usuario como ruta principal para los metodos de alumnoRoutes.
 app.use('/jugador', jugadorRoutes);
 
 // Middleware permite que el folder public sea público. 
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 sequelize.sync({force: true})
     .then(resultado => {

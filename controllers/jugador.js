@@ -5,13 +5,16 @@ const path = require('path');
 
 const Jugador = require('../util/database').models.Jugador;
 
+exports.getConfirmacion = (req, res) => {
+    res.send('Confirmadísimo')
+};
+
 exports.getMostrarFormulario = (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'views', 'formulario.html'));
 };
 
 exports.postInsertarJugador = (req, res) => {
     console.log(req.body);
-    console.log(req.body.gamertag);
     Jugador.create({
         'gamertag': req.body.gamertag,
         'contrasena': req.body.password,

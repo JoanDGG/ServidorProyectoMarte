@@ -7,6 +7,8 @@ router.post('/insertarJugador', jugadorController.postInsertarJugador);
 
 router.get('/registro', jugadorController.getMostrarFormulario);
 
+router.get('/confirmacion', jugadorController.getConfirmacion);
+
 module.exports = router;
 
 
